@@ -1,0 +1,26 @@
+colors hybrid
+
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+set numberwidth=1
+set noshowmode
+set nobackup
+set nowritebackup
+set noswapfile
+
+nmap F :FixWhitespace<CR>
+nmap f<CR> :tabnew %<CR>
+nmap q<CR> :tabclose<CR>
+map r :redo<CR>
+map U :GundoToggle<CR>
+
+let NERDTreeMinimalUI=1
+let g:gundo_right=1
+
+hi NonText ctermfg=234
+
+au InsertEnter * set cursorline
+au InsertLeave * set nocursorline
+

@@ -1,0 +1,7 @@
+set enc=utf-8
+
+let mapleader=','
+
+set fillchars=vert:\│
+set timeoutlen=500 ttimeoutlen=0
+set mouse=a
