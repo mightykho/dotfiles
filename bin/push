@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'fileutils'
+
+manifest = YAML.load_file('manifest.yml')
+
+manifest['files'].each do |file|
+  puts "Moving ./dotfiles/#{file} file to ~/#{file}"
+  FileUtils.copy "./dotfiles/#{file}", File.expand_path("~")
+end

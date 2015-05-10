@@ -4,23 +4,41 @@ python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
 
+set autoread
 set numberwidth=1
 set noshowmode
 set nobackup
 set nowritebackup
 set noswapfile
+set updatetime=500
 
 nmap F :FixWhitespace<CR>
 nmap f<CR> :tabnew %<CR>
 nmap q<CR> :tabclose<CR>
 map r :redo<CR>
 map U :GundoToggle<CR>
+map <c-e> :CtrlP<CR>
+map <leader><c-e> :CtrlPTag<CR>
+map <c-t> :TagbarToggle<CR>
+vmap <c-y> "+y
+nmap <c-y> "+yy
+map <c-p> "+p
+map <c-\> :pop<CR>
+map <leader>b :BuffergatorToggle<CR>
+map <leader>t :BuffergatorTabsToggle<CR>
+
 
 let NERDTreeMinimalUI=1
 let g:gundo_right=1
+let g:gist_detect_filetype=1
+let g:gist_show_privates=1
+let g:gist_post_private=1
+let g:tagbar_compact=1
 
 hi NonText ctermfg=234
 
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
+
+let g:ctrlp_by_filename = 1
 

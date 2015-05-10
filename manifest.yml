@@ -1,0 +1,7 @@
+files:
+  - ".tmux.conf"
+  - ".vimrc.after"
+  - ".vimrc.before"
+  - ".zshrc"
+  - ".gitignore"
+  - ".ctags"
