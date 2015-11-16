@@ -13,7 +13,6 @@ set noswapfile
 set updatetime=500
 
 nmap F :FixWhitespace<CR>
-nmap f<CR> :tabnew %<CR>
 nmap q<CR> :tabclose<CR>
 map r :redo<CR>
 map U :GundoToggle<CR>
@@ -36,9 +35,19 @@ let g:gist_post_private=1
 let g:tagbar_compact=1
 
 hi NonText ctermfg=234
+hi VertSplit ctermfg=238
+
+let &colorcolumn=join(range(81,81),",")
+hi ColorColumn ctermbg=235
 
 au InsertEnter * set cursorline
 au InsertLeave * set nocursorline
 
 let g:ctrlp_by_filename = 1
 
+function OpenInNewTab()
+  let l:winview = winsaveview()
+  execute 'tabnew %'
+  call winrestview(l:winview)
+endfunction
+nmap f<CR> :call OpenInNewTab()<CR>

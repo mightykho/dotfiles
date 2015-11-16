@@ -7,15 +7,14 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="avit"
 
-# Create and checkout to branch #{nick}-#{original_branch}_#{specified_message}
-branchit () {
-  if [ $# -eq 0 ]
-  then
-    echo 'no branchname specified'
-  else
-    local branch_name=$(echo $* | sed -e 's/ /_/g')
-    git checkout -b $(git config github.user)-$(git rev-parse --abbrev-ref HEAD)_$branch_name
-  fi
+# Push current branch
+gpush () {
+  git push origin $(git rev-parse --abbrev-ref HEAD)
+}
+
+# Pull current branch
+gpull () {
+  git pull --rebase origin $(git rev-parse --abbrev-ref HEAD)
 }
 
 # Drop all merged branches
