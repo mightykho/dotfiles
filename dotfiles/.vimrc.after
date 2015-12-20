@@ -26,7 +26,6 @@ map <c-\> :pop<CR>
 map <leader>b :BuffergatorToggle<CR>
 map <leader>t :BuffergatorTabsToggle<CR>
 
-
 let NERDTreeMinimalUI=1
 let g:gundo_right=1
 let g:gist_detect_filetype=1
@@ -51,3 +50,12 @@ function OpenInNewTab()
   call winrestview(l:winview)
 endfunction
 nmap f<CR> :call OpenInNewTab()<CR>
+
+function Task()
+  let branch = system('git rev-parse --abbrev-ref HEAD')
+  let task_id = substitute(branch, '\D*_\(\d*\)\(.*\)', '\1', '')
+  return "[".task_id."](https://www.pivotaltracker.com/story/show/".task_id.")"
+endfunction
+
+command Branch :read !git rev-parse --abbrev-ref HEAD
+command Task :call setline(line('.'), Task())
